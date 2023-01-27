@@ -1,0 +1,649 @@
+shibu@ROG:~$ ls
+folder  linux-commands  task-directory
+shibu@ROG:~$ ls -l
+total 12
+drwxr-xr-x 2 root  root  4096 Jan 24 23:19 folder
+drwxr-xr-x 3 shibu shibu 4096 Jan 24 23:59 linux-commands
+drwxr-xr-x 2 shibu shibu 4096 Jan 25 01:49 task-directory
+shibu@ROG:~$ ls -al
+total 36
+drwxr-x--- 5 shibu shibu 4096 Jan 25 01:49 .
+drwxr-xr-x 3 root  root  4096 Jan 24 23:15 ..
+-rw------- 1 shibu shibu  326 Jan 25 01:54 .bash_history
+-rw-r--r-- 1 shibu shibu  220 Jan 24 23:15 .bash_logout
+-rw-r--r-- 1 shibu shibu 3771 Jan 24 23:15 .bashrc
+-rw-r--r-- 1 shibu shibu    0 Jan 25 01:48 .motd_shown
+-rw-r--r-- 1 shibu shibu  807 Jan 24 23:15 .profile
+-rw-r--r-- 1 shibu shibu    0 Jan 24 23:16 .sudo_as_admin_successful
+drwxr-xr-x 2 root  root  4096 Jan 24 23:19 folder
+drwxr-xr-x 3 shibu shibu 4096 Jan 24 23:59 linux-commands
+drwxr-xr-x 2 shibu shibu 4096 Jan 25 01:49 task-directory
+shibu@ROG:~$ pwd
+/home/shibu
+shibu@ROG:~$ ls
+folder  linux-commands  task-directory
+shibu@ROG:~$ cd /
+shibu@ROG:/$ pwd
+/
+shibu@ROG:/$ ls
+bin  boot  dev  etc  home  init  lib  lib32  lib64  libx32  lost+found  media  mnt  opt  proc  root  run  sbin  snap  srv  sys  tmp  usr  var
+shibu@ROG:/$ cd /usr/bin
+shibu@ROG:/usr/bin$ cd ..
+shibu@ROG:/usr$ cd
+shibu@ROG:~$ touch afile.txt
+shibu@ROG:~$ ls
+afile.txt  folder  linux-commands  task-directory
+shibu@ROG:~$ touch textfile{1..10}.txt
+shibu@ROG:~$ ls
+afile.txt  folder  linux-commands  task-directory  textfile1.txt  textfile10.txt  textfile2.txt  textfile3.txt  textfile4.txt  textfile5.txt  textfile6.txt  textfile7.txt  textfile8.txt  textfile9.txt
+shibu@ROG:~$ echo Hello World
+Hello World
+shibu@ROG:~$ echo "stuff stuff stuff" > newfile.awesome
+shibu@ROG:~$ nano newfile.awesome
+shibu@ROG:~$ vim newfile.awesome
+shibu@ROG:~$ cat newfile.awesome
+stuff stuff stuff
+I'm Editing a File!!!
+Inserting text!!!
+shibu@ROG:~$ mkdir mynewdirectory
+shibu@ROG:~$ ls
+afile.txt  linux-commands  newfile.awesome  textfile1.txt   textfile2.txt  textfile4.txt  textfile6.txt  textfile8.txt
+folder     mynewdirectory  task-directory   textfile10.txt  textfile3.txt  textfile5.txt  textfile7.txt  textfile9.txt
+shibu@ROG:~$ cp afile.txt ./mynewdirectory/afile.txt
+shibu@ROG:~$ la mynewdirectory/
+afile.txt
+shibu@ROG:~$ mv newfile.awesome ./mynewdirectory/newfile.awesome
+shibu@ROG:~$ ls
+afile.txt  linux-commands  task-directory  textfile10.txt  textfile3.txt  textfile5.txt  textfile7.txt  textfile9.txt
+folder     mynewdirectory  textfile1.txt   textfile2.txt   textfile4.txt  textfile6.txt  textfile8.txt
+shibu@ROG:~$ ls mynewdirectory/
+afile.txt  newfile.awesome
+shibu@ROG:~$ rm afile.txt
+shibu@ROG:~$ ls
+folder  linux-commands  mynewdirectory  task-directory  textfile1.txt  textfile10.txt  textfile2.txt  textfile3.txt  textfile4.txt  textfile5.txt  textfile6.txt  textfile7.txt  textfile8.txt  textfile9.txt
+shibu@ROG:~$ rmdir -r mynewdirectory/
+rmdir: invalid option -- 'r'
+Try 'rmdir --help' for more information.
+shibu@ROG:~$ rmdir mynewdirectory
+rmdir: failed to remove 'mynewdirectory': Directory not empty
+shibu@ROG:~$ rm -r mynewdirectory/
+shibu@ROG:~$ ls
+folder  linux-commands  task-directory  textfile1.txt  textfile10.txt  textfile2.txt  textfile3.txt  textfile4.txt  textfile5.txt  textfile6.txt  textfile7.txt  textfile8.txt  textfile9.txt
+shibu@ROG:~$ whoami
+shibu
+shibu@ROG:~$
+shibu@ROG:~$ useradd nick
+useradd: Permission denied.
+useradd: cannot lock /etc/passwd; try again later.
+shibu@ROG:~$ sudo useradd nick
+[sudo] password for shibu:
+shibu@ROG:~$ sudo adduser austin
+Adding user `austin' ...
+Adding new group `austin' (1002) ...
+Adding new user `austin' (1002) with group `austin' ...
+Creating home directory `/home/austin' ...
+Copying files from `/etc/skel' ...
+New password:
+Retype new password:
+passwd: password updated successfully
+Changing the user information for austin
+Enter the new value, or press ENTER for the default
+        Full Name []: austin
+        Room Number []:
+        Work Phone []:
+        Home Phone []:
+        Other []:
+Is the information correct? [Y/n] y
+shibu@ROG:~$ su austin
+Password:
+austin@ROG:/home/shibu$ whoami
+austin
+austin@ROG:/home/shibu$ exit
+exit
+shibu@ROG:~$ man
+What manual page do you want?
+For example, try 'man man'.
+shibu@ROG:~$ man man
+shibu@ROG:~$ man finger
+No manual entry for finger
+shibu@ROG:~$ find folder
+folder
+folder/file.txt
+shibu@ROG:~$ find . -tupe f -empty
+find: unknown predicate `-tupe'
+shibu@ROG:~$ find . -type f -empty
+./textfile2.txt
+./.sudo_as_admin_successful
+./textfile4.txt
+./textfile5.txt
+./textfile9.txt
+./.motd_shown
+./textfile6.txt
+./textfile1.txt
+./textfile7.txt
+./textfile10.txt
+./textfile3.txt
+./folder/file.txt
+shibu@ROG:~$ chmod +x textfile6.txt
+shibu@ROG:~$ ls -l
+total 16
+drwxr-xr-x 2 root  root  4096 Jan 24 23:19 folder
+drwxr-xr-x 3 shibu shibu 4096 Jan 24 23:59 linux-commands
+drwxr-xr-x 2 shibu shibu 4096 Jan 25 01:49 task-directory
+-rw-r--r-- 1 shibu shibu    0 Jan 25 05:34 textfile1.txt
+-rw-r--r-- 1 shibu shibu    0 Jan 25 05:34 textfile10.txt
+-rw-r--r-- 1 shibu shibu    0 Jan 25 05:34 textfile2.txt
+-rw-r--r-- 1 shibu shibu    0 Jan 25 05:34 textfile3.txt
+-rw-r--r-- 1 shibu shibu    0 Jan 25 05:34 textfile4.txt
+-rw-r--r-- 1 shibu shibu    0 Jan 25 05:34 textfile5.txt
+-rwxr-xr-x 1 shibu shibu    0 Jan 25 05:34 textfile6.txt
+-rw-r--r-- 1 shibu shibu    0 Jan 25 05:34 textfile7.txt
+-rw-r--r-- 1 shibu shibu    6 Jan 25 05:38 textfile8.txt
+-rw-r--r-- 1 shibu shibu    0 Jan 25 05:34 textfile9.txt
+shibu@ROG:~$ chown austin textfile6.txt
+chown: changing ownership of 'textfile6.txt': Operation not permitted
+shibu@ROG:~$ ifconfig
+Command 'ifconfig' not found, but can be installed with:
+sudo apt install net-tools
+shibu@ROG:~$ sudo apt install net-tools
+[sudo] password for shibu:
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  net-tools
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 204 kB of archives.
+After this operation, 819 kB of additional disk space will be used.
+Get:1 http://archive.ubuntu.com/ubuntu jammy/main amd64 net-tools amd64 1.60+git20181103.0eebece-1ubuntu5 [204 kB]
+Fetched 204 kB in 3s (78.1 kB/s)
+Selecting previously unselected package net-tools.
+(Reading database ... 24112 files and directories currently installed.)
+Preparing to unpack .../net-tools_1.60+git20181103.0eebece-1ubuntu5_amd64.deb ...
+Unpacking net-tools (1.60+git20181103.0eebece-1ubuntu5) ...
+Setting up net-tools (1.60+git20181103.0eebece-1ubuntu5) ...
+Processing triggers for man-db (2.10.2-1) ...
+shibu@ROG:~$ ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.20.205.96  netmask 255.255.240.0  broadcast 172.20.207.255
+        inet6 fe80::215:5dff:fed7:fa05  prefixlen 64  scopeid 0x20<link>
+        ether 00:15:5d:d7:fa:05  txqueuelen 1000  (Ethernet)
+        RX packets 678  bytes 306642 (306.6 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 127  bytes 9110 (9.1 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+shibu@ROG:~$ ip address
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: bond0: <BROADCAST,MULTICAST,MASTER> mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether 9e:98:d0:3b:18:7d brd ff:ff:ff:ff:ff:ff
+3: dummy0: <BROADCAST,NOARP> mtu 1500 qdisc noop state DOWN group default qlen 1000
+    link/ether 56:aa:6f:56:37:3c brd ff:ff:ff:ff:ff:ff
+4: tunl0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/ipip 0.0.0.0 brd 0.0.0.0
+5: sit0@NONE: <NOARP> mtu 1480 qdisc noop state DOWN group default qlen 1000
+    link/sit 0.0.0.0 brd 0.0.0.0
+6: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:15:5d:d7:fa:05 brd ff:ff:ff:ff:ff:ff
+    inet 172.20.205.96/20 brd 172.20.207.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::215:5dff:fed7:fa05/64 scope link
+       valid_lft forever preferred_lft forever
+shibu@ROG:~$ ip address | grep eth0
+6: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    inet 172.20.205.96/20 brd 172.20.207.255 scope global eth0
+shibu@ROG:~$ ip address | grep eth0 | grep inet
+    inet 172.20.205.96/20 brd 172.20.207.255 scope global eth0
+shibu@ROG:~$ ip address | grep eth0 | grep inet | awk '{print $2}'
+172.20.205.96/20
+shibu@ROG:~$ cat /etc/resolv.conf
+# This file was automatically generated by WSL. To stop automatic generation of this file, add the following entry to /etc/wsl.conf:
+# [network]
+# generateResolvConf = false
+nameserver 172.20.192.1
+shibu@ROG:~$ ping www.guvi.com
+PING www.guvi.com (172.67.146.154) 56(84) bytes of data.
+64 bytes from 172.67.146.154 (172.67.146.154): icmp_seq=1 ttl=58 time=168 ms
+64 bytes from 172.67.146.154 (172.67.146.154): icmp_seq=2 ttl=58 time=169 ms
+64 bytes from 172.67.146.154 (172.67.146.154): icmp_seq=3 ttl=58 time=178 ms
+64 bytes from 172.67.146.154 (172.67.146.154): icmp_seq=4 ttl=58 time=168 ms
+64 bytes from 172.67.146.154 (172.67.146.154): icmp_seq=5 ttl=58 time=168 ms
+64 bytes from 172.67.146.154 (172.67.146.154): icmp_seq=6 ttl=58 time=173 ms
+64 bytes from 172.67.146.154 (172.67.146.154): icmp_seq=7 ttl=58 time=168 ms
+^C64 bytes from 172.67.146.154: icmp_seq=8 ttl=58 time=169 ms
+
+--- www.guvi.com ping statistics ---
+8 packets transmitted, 8 received, 0% packet loss, time 10720ms
+rtt min/avg/max/mdev = 167.975/170.194/177.770/3.256 ms
+shibu@ROG:~$ ping -c
+ping: option requires an argument -- 'c'
+
+Usage
+  ping [options] <destination>
+
+Options:
+  <destination>      dns name or ip address
+  -a                 use audible ping
+  -A                 use adaptive ping
+  -B                 sticky source address
+  -c <count>         stop after <count> replies
+  -D                 print timestamps
+  -d                 use SO_DEBUG socket option
+  -f                 flood ping
+  -h                 print help and exit
+  -I <interface>     either interface name or address
+  -i <interval>      seconds between sending each packet
+  -L                 suppress loopback of multicast packets
+  -l <preload>       send <preload> number of packages while waiting replies
+  -m <mark>          tag the packets going out
+  -M <pmtud opt>     define mtu discovery, can be one of <do|dont|want>
+  -n                 no dns name resolution
+  -O                 report outstanding replies
+  -p <pattern>       contents of padding byte
+  -q                 quiet output
+  -Q <tclass>        use quality of service <tclass> bits
+  -s <size>          use <size> as number of data bytes to be sent
+  -S <size>          use <size> as SO_SNDBUF socket option value
+  -t <ttl>           define time to live
+  -U                 print user-to-user latency
+  -v                 verbose output
+  -V                 print version and exit
+  -w <deadline>      reply wait <deadline> in seconds
+  -W <timeout>       time to wait for response
+
+IPv4 options:
+  -4                 use IPv4
+  -b                 allow pinging broadcast
+  -R                 record route
+  -T <timestamp>     define timestamp, can be one of <tsonly|tsandaddr|tsprespec>
+
+IPv6 options:
+  -6                 use IPv6
+  -F <flowlabel>     define flow label, default is random
+  -N <nodeinfo opt>  use icmp6 node info query, try <help> as argument
+
+For more details see ping(8).
+shibu@ROG:~$ ping -c 5 -s 500 www.guvi.com
+PING www.guvi.com (172.67.146.154) 500(528) bytes of data.
+508 bytes from 172.67.146.154 (172.67.146.154): icmp_seq=1 ttl=58 time=170 ms
+508 bytes from 172.67.146.154 (172.67.146.154): icmp_seq=2 ttl=58 time=171 ms
+508 bytes from 172.67.146.154 (172.67.146.154): icmp_seq=3 ttl=58 time=170 ms
+508 bytes from 172.67.146.154 (172.67.146.154): icmp_seq=4 ttl=58 time=173 ms
+508 bytes from 172.67.146.154: icmp_seq=5 ttl=58 time=170 ms
+
+--- www.guvi.com ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 5908ms
+rtt min/avg/max/mdev = 169.507/170.666/172.654/1.212 ms
+shibu@ROG:~$ traceroute www.guvi.com
+Command 'traceroute' not found, but can be installed with:
+sudo apt install inetutils-traceroute  # version 2:2.2-2, or
+sudo apt install traceroute            # version 1:2.1.0-2
+shibu@ROG:~$ netsat
+Command 'netsat' not found, did you mean:
+  command 'netstat' from deb net-tools (1.60+git20181103.0eebece-1ubuntu5)
+  command 'netcat' from deb netcat-openbsd (1.218-4ubuntu1)
+  command 'netcat' from deb ncat (7.91+dfsg1+really7.80+dfsg1-2build1)
+  command 'netcat' from deb netcat-traditional (1.10-47)
+Try: sudo apt install <deb name>
+shibu@ROG:~$ netstat
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State
+Active UNIX domain sockets (w/o servers)
+Proto RefCnt Flags       Type       State         I-Node   Path
+shibu@ROG:~$ netstat -tulpn
+(No info could be read for "-p": geteuid()=1000 but you should be root.)
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+shibu@ROG:~$ ss
+Netid   State     Recv-Q   Send-Q     Local Address:Port            Peer Address:Port         Process
+v_str   ESTAB     0        0                      *:4179734865                 2:50000
+v_str   ESTAB     0        0                      *:4179734866                 2:50000
+v_str   ESTAB     0        0                      *:4179734867                 2:50000
+v_str   ESTAB     0        0                      *:4179734868                 2:50001
+v_str   ESTAB     0        0                      *:4179734869                 2:50000
+v_str   ESTAB     0        0                      *:4179734871                 2:50000
+v_str   ESTAB     0        0                      *:4179734872                 2:50001
+v_str   ESTAB     0        0                      *:4179734873                 2:50001
+v_str   CLOSING   0        0                      *:4179734874                 2:1636925898
+v_str   ESTAB     0        0                      *:4179734875                 2:1636925901
+v_str   ESTAB     0        0                      *:4179734876                 2:1636925905
+v_str   ESTAB     0        0                      *:4179734876                 2:1636925904
+v_str   ESTAB     0        0                      *:4179734876                 2:1636925903
+v_str   ESTAB     0        0                      *:4179734876                 2:1636925902
+shibu@ROG:~$ ss -tulpn
+Netid    State     Recv-Q     Send-Q         Local Address:Port         Peer Address:Port    Process
+shibu@ROG:~$ ufw allow 80
+ERROR: You need to be root to run this script
+shibu@ROG:~$ sudo ufw allow 80
+Rules updated
+Rules updated (v6)
+shibu@ROG:~$ sudo ufw status
+Status: inactive
+shibu@ROG:~$ sudo ufw enable
+ERROR: problem running ufw-init
+iptables-restore v1.8.7 (nf_tables):
+line 42: RULE_APPEND failed (No such file or directory): rule in chain INPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain INPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain INPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain INPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain INPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain INPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain OUTPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain OUTPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain OUTPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain OUTPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain OUTPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain OUTPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain FORWARD
+line 42: RULE
+iptables-restore v1.8.7 (nf_tables): Couldn't load match `conntrack':No such file or directory
+
+Error occurred at line: 2
+Try `iptables-restore -h' or 'iptables-restore --help' for more information.
+iptables-restore v1.8.7 (nf_tables):
+line 8: RULE_APPEND failed (No such file or directory): rule in chain ufw-skip-to-policy-input
+line 8: RULE_APPEND failed (No such file or directory): rule in chain ufw-skip-to-policy-output
+line 8: RULE_APPEND failed (No such file or directory): rule in chain ufw-skip-to-policy-forward
+iptables-restore v1.8.7 (nf_tables): Couldn't load match `conntrack':No such file or directory
+
+Error occurred at line: 25
+Try `iptables-restore -h' or 'iptables-restore --help' for more information.
+iptables-restore v1.8.7 (nf_tables): unknown option "--dport"
+Error occurred at line: 19
+Try `iptables-restore -h' or 'iptables-restore --help' for more information.
+iptables-restore v1.8.7 (nf_tables): unknown option "--dport"
+Error occurred at line: 19
+Try `iptables-restore -h' or 'iptables-restore --help' for more information.
+iptables-restore: line 5 failed
+ip6tables-restore v1.8.7 (nf_tables):
+line 42: RULE_APPEND failed (No such file or directory): rule in chain INPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain INPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain INPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain INPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain INPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain INPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain OUTPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain OUTPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain OUTPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain OUTPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain OUTPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain OUTPUT
+line 42: RULE_APPEND failed (No such file or directory): rule in chain FORWARD
+line 42: RULE
+ip6tables-restore v1.8.7 (nf_tables): Couldn't load match `conntrack':No such file or directory
+
+Error occurred at line: 2
+Try `ip6tables-restore -h' or 'ip6tables-restore --help' for more information.
+ip6tables-restore v1.8.7 (nf_tables):
+line 8: RULE_APPEND failed (No such file or directory): rule in chain ufw6-skip-to-policy-input
+line 8: RULE_APPEND failed (No such file or directory): rule in chain ufw6-skip-to-policy-output
+line 8: RULE_APPEND failed (No such file or directory): rule in chain ufw6-skip-to-policy-forward
+ip6tables-restore v1.8.7 (nf_tables): Couldn't load match `rt':No such file or directory
+
+Error occurred at line: 24
+Try `ip6tables-restore -h' or 'ip6tables-restore --help' for more information.
+ip6tables-restore v1.8.7 (nf_tables): unknown option "--dport"
+Error occurred at line: 19
+Try `ip6tables-restore -h' or 'ip6tables-restore --help' for more information.
+ip6tables-restore v1.8.7 (nf_tables): unknown option "--dport"
+Error occurred at line: 19
+Try `ip6tables-restore -h' or 'ip6tables-restore --help' for more information.
+ip6tables-restore: line 5 failed
+
+Problem running '/etc/ufw/before.rules'
+Problem running '/etc/ufw/after.rules'
+Problem running '/etc/ufw/user.rules'
+Problem running '/etc/ufw/before6.rules'
+Problem running '/etc/ufw/after6.rules'
+Problem running '/etc/ufw/user6.rules'
+
+shibu@ROG:~$ uname
+Linux
+shibu@ROG:~$ uname -a
+Linux ROG 5.10.16.3-microsoft-standard-WSL2 #1 SMP Fri Apr 2 22:23:49 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux
+shibu@ROG:~$ sudo apt install neofetch
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+E: Unable to locate package neofetch
+shibu@ROG:~$ neofetch
+Command 'neofetch' not found, but can be installed with:
+sudo apt install neofetch
+shibu@ROG:~$ free
+               total        used        free      shared  buff/cache   available
+Mem:         7846772      128448     7571432          72      146892     7513640
+Swap:        2097152           0     2097152
+shibu@ROG:~$ df
+Filesystem     1K-blocks     Used Available Use% Mounted on
+/dev/sdb       263174212  1115952 248620104   1% /
+tools          668626244 91956760 576669484  14% /init
+tmpfs            3923384        0   3923384   0% /sys/fs/cgroup
+none             3923384        4   3923380   1% /run
+none             3923384        0   3923384   0% /run/lock
+none             3923384        0   3923384   0% /run/shm
+none             3923384        0   3923384   0% /run/user
+drivers        668626244 91956760 576669484  14% /usr/lib/wsl/drivers
+lib            668626244 91956760 576669484  14% /usr/lib/wsl/lib
+none             3923384        4   3923380   1% /mnt/wsl
+drvfsa         668626244 91956760 576669484  14% /mnt/c
+drvfsa         307199996   105648 307094348   1% /mnt/d
+shibu@ROG:~$ df -H
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdb        270G  1.2G  255G   1% /
+tools           685G   95G  591G  14% /init
+tmpfs           4.1G     0  4.1G   0% /sys/fs/cgroup
+none            4.1G  4.1k  4.1G   1% /run
+none            4.1G     0  4.1G   0% /run/lock
+none            4.1G     0  4.1G   0% /run/shm
+none            4.1G     0  4.1G   0% /run/user
+drivers         685G   95G  591G  14% /usr/lib/wsl/drivers
+lib             685G   95G  591G  14% /usr/lib/wsl/lib
+none            4.1G  4.1k  4.1G   1% /mnt/wsl
+drvfsa          685G   95G  591G  14% /mnt/c
+drvfsa          315G  109M  315G   1% /mnt/d
+shibu@ROG:~$ ps
+  PID TTY          TIME CMD
+   10 pts/0    00:00:00 bash
+  337 pts/0    00:00:00 ps
+shibu@ROG:~$ ps -aux
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0   1824  1184 ?        Sl   16:58   0:00 /init
+root         8  0.0  0.0   2172   368 ?        Ss   16:58   0:00 /init
+root         9  0.0  0.0   2172   368 ?        R    16:58   0:00 /init
+shibu       10  0.0  0.0   6164  5016 pts/0    Ss   16:58   0:00 -bash
+shibu      338  0.0  0.0   7784  3256 pts/0    R+   18:32   0:00 ps -aux
+shibu@ROG:~$ top
+top - 18:33:03 up  1:34,  0 users,  load average: 0.00, 0.00, 0.00
+Tasks:   5 total,   1 running,   4 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   7662.9 total,   7393.4 free,    125.7 used,    143.8 buff/cache
+MiB Swap:   2048.0 total,   2048.0 free,      0.0 used.   7337.0 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+    1 root      20   0    1824   1184   1108 S   0.0   0.0   0:00.03 init
+    8 root      20   0    2172    368      0 S   0.0   0.0   0:00.00 init
+    9 root      20   0    2172    368      0 S   0.0   0.0   0:00.25 init
+   10 shibu     20   0    6164   5016   3296 S   0.0   0.1   0:00.22 bash
+  339 shibu     20   0    7784   3716   3120 R   0.0   0.0   0:00.00 top
+
+
+
+
+
+
+
+HISTORY
+shibu@ROG:~$ htop
+shibu@ROG:~$ history
+    1  sudo su
+    2  pwd
+    3  sudo su
+    4  exit
+    5  ls
+    6  ll
+    7  clear
+    8  exit
+    9  su
+   10  sudo su
+   11  clear
+   12  histoty
+   13  history
+   14  clear
+   15  ls
+   16  ls -l
+   17  ls -al
+   18  pwd
+   19  devops
+   20  clear
+   21  pwd
+   22  git clone https://github.com/shibupraveen/linux-commands.git
+   23  ls
+   24  ls -l
+   25  ls -a
+   26  ls -al
+   27  pwd
+   28  clear
+   29  exit
+   30  pwd
+   31  mkdir task-directory
+   32  ls
+   33  cd linux-commands
+   34  cd..
+   35  cd /
+   36  clear
+   37  ls
+   38  ll
+   39  ls -al
+   40  pwd
+   41  ls
+   42  cd home
+   43  ls
+   44  cd //
+   45  cd /
+   46  exit
+   47  ssh
+   48  clear
+   49  ls
+   50  ls -l
+   51  ls -al
+   52  pwd
+   53  ls
+   54  ls -l
+   55  ls -al
+   56  pwd
+   57  ls
+   58  cd /
+   59  pwd
+   60  ls
+   61  cd /usr/bin
+   62  cd ..
+   63  cd
+   64  touch afile.txt
+   65  ls
+   66  touch textfile{1..10}.txt
+   67  ls
+   68  echo Hello World
+   69  echo "stuff" . textfile8.txt
+   70  echo "stuff" > textfile8.txt
+   71  ls
+   72  nano newfile.some
+   73  cat newfile.some
+   74  cat folder
+   75  cat textfile.txt
+   76  cat > newfile.some
+   77  ls
+   78  vim newfile.some
+   79  ls
+   80  rm -r newfile.some
+   81  ls
+   82  rm newfile.somey
+   83  ls
+   84  clear
+   85  echo Hello world
+   86  echo "stuff stuff stuff" > newfile.awesome
+   87  nano newfile.awesome
+   88  vim newfile.awesome
+   89  cat newfile.awesome
+   90  shred newfile.awesome
+   91  cat newfile.awesome
+   92  clear
+   93  mkdir mynewdirectory
+   94  ls
+   95  cp afile.txt ./mynewdirectory/afile.txt
+   96  la mynewdirectory/
+   97  mv newfile.awesome ./mynewdirectory/newfile.awesome
+   98  ls
+   99  ls mynewdirectory/
+  100  rm afile.txt
+  101  ls
+  102  rmdir -r mynewdirectory/
+  103  rmdir mynewdirectory
+  104  rm -r mynewdirectory/
+  105  ls
+  106  whoami
+  107  useradd nick
+  108  sudo useradd nick
+  109  sudo adduser austin
+  110  su austin
+  111  man
+  112  man man
+  113  man finger
+  114  find folder
+  115  find . -tupe f -empty
+  116  find . -type f -empty
+  117  chmod +x textfile6.txt
+  118  ls -l
+  119  chown austin textfile6.txt
+  120  ifconfig
+  121  sudo apt install net-tools
+  122  ifconfig
+  123  ip address
+  124  ip address | grep eth0
+  125  ip address | grep eth0 | grep inet
+  126  ip address | grep eth0 | grep inet | awk '{print $2}'
+  127  cat /etc/resolv.conf
+  128  ping www.guvi.com
+  129  ping -c
+  130  ping -c 5 -s 500 www.guvi.com
+  131  traceroute www.guvi.com
+  132  netsat
+  133  netstat
+  134  netstat -tulpn
+  135  ss
+  136  ss -tulpn
+  137  ufw allow 80
+  138  sudo ufw allow 80
+  139  sudo ufw status
+  140  sudo ufw enable
+  141  uname
+  142  uname -a
+  143  sudo apt install neofetch
+  144  neofetch
+  145  free
+  146  df
+  147  df -H
+  148  ps
+  149  ps -aux
+  150  top
+  151  htop
+  152  history
+shibu@ROG:~$
+
+
+
+
+
